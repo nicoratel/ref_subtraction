@@ -108,3 +108,22 @@ st.plotly_chart(fig, use_container_width=True)
 
 if sample_file is None or ref_file is None:
     st.info("Upload both files to run subtraction.")
+
+
+# add button to download the subtracted data
+# add field to specify output filename
+
+output_filename = st.text_input("Output Filename", value="subtracted_data.ASC")
+
+
+if tth is not None and I is not None:
+    output_data = np.column_stack((tth, I))
+    np.savetxt(output_filename, output_data)
+
+    with open(output_filename, "rb") as f:
+        st.download_button(
+            label="Download Subtracted Data",
+            data=f,
+            file_name=output_filename,
+            mime="text/plain",
+        )
