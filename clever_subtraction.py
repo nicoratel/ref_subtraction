@@ -6,7 +6,7 @@ from subtract import subtract_C
 
 # Configure Streamlit page
 st.set_page_config(
-    page_title="scatt2PDF - Interactive GUI",
+    page_title="Substract Reference from Sample",
     layout="wide",
     initial_sidebar_state="expanded"
 )
@@ -14,7 +14,7 @@ st.set_page_config(
 # --- 1. Upload files ---
 st.markdown("#### Upload Files")
 
-st.title("Interactive PDF Extraction")
+st.title("Interactive Reference Subtraction")
 
 # Add CSS to style tab labels and reduce content font size
 st.markdown("""
@@ -113,7 +113,7 @@ if sample_file is None or ref_file is None:
 # add button to download the subtracted data
 # add field to specify output filename
 
-output_filename = st.text_input("Output Filename", value="subtracted_data.ASC")
+output_filename = st.text_input("Output Filename", value="subtracted_data.xy")
 
 
 if tth is not None and I is not None:
